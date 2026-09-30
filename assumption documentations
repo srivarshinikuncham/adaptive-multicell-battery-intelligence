@@ -1,0 +1,53 @@
+# Assumptions Document
+
+## Project: Adaptive Multi-Cell Battery Intelligence Engine
+
+### 1. Battery Cell Inputs
+
+The project uses four independent analog inputs to represent four battery cells. During simulation, adjustable inputs are used to vary the cell values.
+
+### 2. Simulation
+
+The battery-cell inputs are simulated for prototype and testing purposes. The simulated values represent cell-voltage behavior and are not intended to represent direct measurement of a real lithium-ion cell without suitable voltage-sensing and protection circuitry.
+
+### 3. Battery Voltage Range
+
+The software uses defined minimum and maximum voltage limits to identify abnormal cell conditions.
+
+### 4. Imbalance Detection
+
+The difference between the strongest and weakest cell is used to determine the battery-cell imbalance condition.
+
+### 5. Battery Health States
+
+The system classifies the battery condition into:
+
+- HEALTHY
+- MINOR IMBALANCE
+- CRITICAL IMBALANCE
+- PACK FAILURE
+
+### 6. Protection States
+
+The embedded control logic uses:
+
+- NORMAL
+- DEGRADED
+- FAILSAFE
+- SHUTDOWN
+
+### 7. Cloud Connectivity
+
+Blynk is used for cloud telemetry and live dashboard visualization. The system is designed so that battery monitoring and local protection logic do not depend entirely on cloud connectivity.
+
+### 8. Credentials
+
+Authentication tokens, passwords and API keys are treated as confidential and are not included in the public repository.
+
+### 9. Hardware Safety
+
+The prototype and simulation are intended for educational and development purposes. Real battery packs require appropriate battery-management hardware, isolation, protection circuitry and correctly rated switching components before practical deployment.
+
+### 10. Scalability
+
+The software architecture is designed around individual cell monitoring and state-based decision logic so that the concept can be extended to a larger number of cells.
