@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Adaptive Multi-Cell Battery Intelligence Engine</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="hero">
+    <div>
+      <p class="eyebrow">INTERACTIVE ENGINEERING DEMONSTRATION</p>
+      <h1>Adaptive Multi-Cell Battery Intelligence Engine</h1>
+      <p class="subtitle">Real-time multi-cell monitoring, imbalance detection and event-driven protection simulation.</p>
+    </div>
+    <div class="live-pill"><span></span> LIVE SIMULATION</div>
+  </header>
+
+  <main>
+    <section class="card">
+      <div class="section-title">
+        <div>
+          <h2>Interactive Battery Simulator</h2>
+          <p>Move any cell slider to simulate a changing battery-cell voltage.</p>
+        </div>
+        <button id="resetBtn">Reset to Healthy</button>
+      </div>
+
+      <div class="cells">
+        <div class="cell-control">
+          <div class="cell-head"><b>Cell 1</b><strong id="v1">3.40 V</strong></div>
+          <input id="s1" type="range" min="0" max="100" value="50">
+          <div class="range-labels"><span>2.50 V</span><span>4.30 V</span></div>
+        </div>
+        <div class="cell-control">
+          <div class="cell-head"><b>Cell 2</b><strong id="v2">3.40 V</strong></div>
+          <input id="s2" type="range" min="0" max="100" value="50">
+          <div class="range-labels"><span>2.50 V</span><span>4.30 V</span></div>
+        </div>
+        <div class="cell-control">
+          <div class="cell-head"><b>Cell 3</b><strong id="v3">3.40 V</strong></div>
+          <input id="s3" type="range" min="0" max="100" value="50">
+          <div class="range-labels"><span>2.50 V</span><span>4.30 V</span></div>
+        </div>
+        <div class="cell-control">
+          <div class="cell-head"><b>Cell 4</b><strong id="v4">3.40 V</strong></div>
+          <input id="s4" type="range" min="0" max="100" value="50">
+          <div class="range-labels"><span>2.50 V</span><span>4.30 V</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="metrics">
+      <div class="metric"><span>Average Voltage</span><b id="avg">3.40 V</b></div>
+      <div class="metric"><span>Imbalance</span><b id="imb">0.00 V / 0.00%</b></div>
+      <div class="metric"><span>Weakest Cell</span><b id="weak">Cell 1</b></div>
+      <div class="metric"><span>Strongest Cell</span><b id="strong">Cell 1</b></div>
+    </section>
+
+    <section class="status-grid">
+      <div class="card status-card">
+        <h2>Battery Health</h2>
+        <div id="health" class="status healthy">HEALTHY</div>
+        <p id="healthText">All simulated cells are within the healthy operating range.</p>
+        <div class="code">Health Code: <b id="healthCode">0</b></div>
+      </div>
+      <div class="card status-card">
+        <h2>Protection State</h2>
+        <div id="protection" class="status normal">NORMAL</div>
+        <p id="protectionText">Battery operation is allowed.</p>
+        <div class="code">Protection Code: <b id="protectionCode">0</b></div>
+      </div>
+      <div class="card status-card">
+        <h2>Protection Outputs</h2>
+        <div class="outputs">
+          <div><span>Relay</span><b id="relay">ON</b></div>
+          <div><span>Buzzer</span><b id="buzzer">OFF</b></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>Battery Pack Visualization</h2>
+      <div class="pack">
+        <div class="battery-cell"><span>C1</span><b id="bar1">3.40 V</b><i><em id="fill1"></em></i></div>
+        <div class="battery-cell"><span>C2</span><b id="bar2">3.40 V</b><i><em id="fill2"></em></i></div>
+        <div class="battery-cell"><span>C3</span><b id="bar3">3.40 V</b><i><em id="fill3"></em></i></div>
+        <div class="battery-cell"><span>C4</span><b id="bar4">3.40 V</b><i><em id="fill4"></em></i></div>
+      </div>
+      <p class="note">Simulation scaling: slider position represents a simulated cell voltage from 2.50 V to 4.30 V. This is a demonstration model, not a calibrated real-voltage measurement.</p>
+    </section>
+
+    <section class="card">
+      <h2>State Logic</h2>
+      <div class="logic">
+        <div><b>NORMAL</b><span>Balanced cells</span></div>
+        <div><b>DEGRADED</b><span>Minor imbalance detected</span></div>
+        <div><b>FAILSAFE</b><span>Critical imbalance detected</span></div>
+        <div><b>SHUTDOWN</b><span>Pack failure condition</span></div>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>How This Demonstration Relates to the Project</h2>
+      <p class="explain">The browser simulator reproduces the decision logic used by the embedded battery-management demonstration: four cell values are evaluated, average and imbalance are calculated, the weakest and strongest cells are identified, and the system selects a health state and protection state. The physical project uses ESP32 inputs and Blynk telemetry; this public simulator provides an evaluator-friendly way to test the same core logic without requiring the evaluator to connect hardware.</p>
+    </section>
+  </main>
+
+  <footer>
+    <p>Adaptive Multi-Cell Battery Intelligence Engine • Interactive Demonstration</p>
+    <p class="small">For project demonstration and verification purposes.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
